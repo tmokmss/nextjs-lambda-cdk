@@ -5,7 +5,7 @@ RUN npm ci
 COPY . ./
 RUN npm run build
 
-# Use common base image to reduce cold start time
+# Use a common base image to reduce the cold start time
 FROM amazon/aws-lambda-nodejs:16
 
 # Install Lambda Web Adapter
@@ -17,6 +17,6 @@ COPY --from=builder /build/public ./public
 COPY --from=builder /build/.next/static ./.next/static
 COPY --from=builder /build/.next/standalone ./
 
-# Changes due to base image
+# Changes due to the base image
 ENTRYPOINT ["node"]
 CMD ["server.js"]
