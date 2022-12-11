@@ -13,9 +13,16 @@ You need the following tools to deploy this sample:
 Then run the following commands:
 
 ```sh
+cd cdk
 npm ci
 npx cdk bootstrap
 npx cdk deploy
+```
+
+You can also deploy your changes to frontend code instantly by the following command:
+
+```sh
+npx cdk deploy --hotswap
 ```
 
 ## Clean up
